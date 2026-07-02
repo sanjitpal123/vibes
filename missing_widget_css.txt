@@ -1,0 +1,201 @@
+﻿<style>
+                        /* widget: Vertical Curved Timeline */
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2.ue-container {
+                          width: 100%;
+                          display: flex;
+                          align-items: center;
+                        }
+
+                        /* Timeline Container */
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-timeline {
+                          width: 100%;
+                          margin: 0 auto;
+                          padding: 0 20px;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-item-image {
+                          overflow: hidden;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-item-image
+                          img {
+                          width: 100%;
+                          height: 100%;
+                          transition: 0.3s;
+                        }
+
+                        /* Card container */
+                        #uc_vertical_curve_timeline_elementor_eefbda2 .ue-card {
+                          position: relative;
+                          display: flex;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2 .ue-slno {
+                          border-radius: 50%;
+                          position: absolute;
+                          top: 50%;
+                          left: 0;
+                          transform: translate(-50%, -50%);
+                          display: grid;
+                          place-content: center;
+                        }
+
+                        /* setting padding based on even or odd */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(odd) {
+                          padding: 30px 0 30px 30px;
+                        }
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even) {
+                          padding: 30px 30px 30px 0;
+                        }
+                        /* Global ::before */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card::before {
+                          content: "";
+                          position: absolute;
+                          width: 50%;
+                        }
+
+                        /* Setting the border of top, bottom, left */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(odd)::before {
+                          left: 0px;
+                          top: -3px;
+                          bottom: -3px;
+                          border-width: 3px 0 3px 3px;
+                          border-radius: 20px 0 0 20px;
+                        }
+
+                        /* Setting the top and bottom to "-3px" because earlier it was out of a pixel in mobile devices */
+                        @media only screen and (max-width: 400px) {
+                          #uc_vertical_curve_timeline_elementor_eefbda2
+                            .ue-card:nth-child(odd)::before {
+                            top: -3px;
+                            bottom: -3px;
+                          }
+                        }
+
+                        /* Setting the border of top, bottom, right */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even)::before {
+                          right: 0;
+                          top: 0;
+                          bottom: 0;
+                          border-width: 3px 3px 3px 0;
+                          border-radius: 0 20px 20px 0;
+                        }
+
+                        /* Removing the border if it is the first card */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:first-child::before {
+                          border-top: 0;
+                          border-top-left-radius: 0;
+                        }
+
+                        /* Removing the border if it is the last card  and it's odd */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:last-child:nth-child(odd)::before {
+                          border-bottom: 0;
+                          border-bottom-left-radius: 0;
+                        }
+
+                        /* Removing the border if it is the last card  and it's even */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:last-child:nth-child(even)::before {
+                          border-bottom: 0;
+                          border-bottom-right-radius: 0;
+                        }
+
+                        /* Information about the timeline */
+                        #uc_vertical_curve_timeline_elementor_eefbda2 .ue-info {
+                          display: flex;
+                          border-radius: 10px;
+                          padding: 10px;
+                          width: 100%;
+                        }
+
+                        /* Title of the card */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-title {
+                          position: relative;
+                        }
+
+                        /* Timeline dot  */
+
+                        /* text right if the card is even  */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even) {
+                          text-align: right;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even)
+                          .ue-item-image {
+                          margin-left: auto;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even)
+                          .ue-info {
+                          padding-right: 20px;
+                          margin-left: auto;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(odd)
+                          .ue-info {
+                          padding-left: 20px;
+                        }
+
+                        /* setting dot to the left if the card is odd */
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(odd)
+                          > .ue-info
+                          > .ue-title::before {
+                          left: -45px;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even)
+                          > .ue-slno {
+                          right: 0%;
+                          left: auto;
+                          transform: translate(50%, -50%);
+                          margin-right: calc(3px / 2);
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(odd)
+                          > .ue-slno {
+                          margin-left: calc(3px / 2);
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(1)::before {
+                          height: 50%;
+                          top: auto;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:last-child::before {
+                          height: 50%;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-button-link {
+                          width: fit-content;
+                          z-index: 100;
+                        }
+
+                        #uc_vertical_curve_timeline_elementor_eefbda2
+                          .ue-card:nth-child(even)
+                          .ue-button-link {
+                          margin-left: auto;
+                        }
+                      </style>
