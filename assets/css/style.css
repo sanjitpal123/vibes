@@ -3981,6 +3981,7 @@ select.form-control {
   .hero-checklist li {
     font-size: 14px;
     justify-content: flex-start;
+    text-align: left;
     background: #fff;
     padding: 10px 20px 10px 12px;
     border-radius: 20px;
@@ -5538,5 +5539,11 @@ select.form-control {
     }
     .gmb-carousel-nav {
         padding-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-badge {
+        display: none !important;
     }
 }

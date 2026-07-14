@@ -506,10 +506,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupPhoneInput) {
                 popupPhoneInput.addEventListener('input', () => {
                     if (popupPhoneError) popupPhoneError.style.display = 'none';
-                    // Remove non-digit characters
-                    popupPhoneInput.value = popupPhoneInput.value.replace(/\D/g, '');
+                    // Remove non-digit characters except leading +
+                    popupPhoneInput.value = popupPhoneInput.value.replace(/(?!^\+)\D/g, '');
                     if (popupPhoneInput.value.startsWith('0')) {
                         popupPhoneInput.value = popupPhoneInput.value.substring(1);
+                    } else if (popupPhoneInput.value.startsWith('+0')) {
+                        popupPhoneInput.value = '+' + popupPhoneInput.value.substring(2);
                     }
                 });
             }
@@ -527,6 +529,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const digitCount = phoneVal.replace(/\D/g, '').length;
                     if (digitCount < 10) {
                         popupPhoneError.textContent = 'Phone number must be at least 10 digits long.';
+                        popupPhoneError.style.display = 'block';
+                        return;
+                    }
+                    if (digitCount > 13) {
+                        popupPhoneError.textContent = 'Phone number must not exceed 13 digits.';
                         popupPhoneError.style.display = 'block';
                         return;
                     }
@@ -636,6 +643,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 phoneError.style.display = 'block';
                 return;
             }
+            if (digitCount > 13) {
+                phoneError.textContent = 'Phone number must not exceed 13 digits.';
+                phoneError.style.display = 'block';
+                return;
+            }
             
             phoneError.style.display = 'none';
             window.location.href = 'thank-you.html';
@@ -643,11 +655,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         heroPhone.addEventListener('input', () => {
             phoneError.style.display = 'none';
-            // Remove non-digit characters
-            heroPhone.value = heroPhone.value.replace(/\D/g, '');
+            // Remove non-digit characters except leading +
+            heroPhone.value = heroPhone.value.replace(/(?!^\+)\D/g, '');
             // Optional: Prevent starting with 0 on input
             if (heroPhone.value.startsWith('0')) {
                 heroPhone.value = heroPhone.value.substring(1);
+            } else if (heroPhone.value.startsWith('+0')) {
+                heroPhone.value = '+' + heroPhone.value.substring(2);
             }
         });
     }
